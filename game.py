@@ -11,10 +11,13 @@ class Game:
             return GameResult(True, 3, 0)
         else:
             strikes = 0
+            balls = 0
             for i in range(len(self.question)):
                 if self.question.find(guess_num[i]) == i:
                     strikes += 1
-            return GameResult(False, strikes, 0)
+                elif self.question.find(guess_num[i]) != -1:
+                    balls += 1
+            return GameResult(False, strikes, balls)
     def assert_illegal_value(self, guess_num):
         if guess_num is None:
             raise TypeError()
