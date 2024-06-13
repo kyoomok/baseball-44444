@@ -4,4 +4,11 @@ class Game:
             raise TypeError()
 
         if len(guess_num) != 3:
-            raise TypeError
+            raise TypeError()
+
+        for num in guess_num:
+            if not ord('0') <= ord(num) < ord('9'):
+                raise TypeError()
+
+        if guess_num[0] == guess_num[1] or guess_num[0] == guess_num[2] or guess_num[1] == guess_num[2]:
+            raise TypeError()
